@@ -1,0 +1,23 @@
+﻿Ask the user to enter a series of brackets
+read a left brace and push it in stack
+when you encounter right brace
+pop out stack
+check if item popped out is a matching brace
+if not then braces are not nested
+When newline character is read check if stack is empty
+if yes then braces are matched
+if no and stack_underflow is ever called
+braces are not matched
+If stack overflow is called print "Stack overflow." and terminate immediately
+
+FUNCTIONS THAT I CAN CREATE
+read_brace:	reads braces till a newline character. For every
+			brace read calls analyse function.
+
+analyse:	reads the braces and when left brace occurs
+			pushes it into the stack. If right one occurs
+			then calls right_brace().
+
+right_brace:	If right brace occurs pops the stack out.
+				Checks if item is matching brace. If not
+				prints output.de
