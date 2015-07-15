@@ -18,11 +18,12 @@ int main(void)
 	for (j = 0; j < i; j++) {
 		if (message[j] >= 'A' && message[j] <= 'Z') {
 			message[j] = ((message[j] - 'A') + shift) % 26 + 'A';
-		} else if (message[j] >= 'a' && message[i] <= 'z') {
+		} else if (message[j] >= 'a' && message[j] <= 'z') {
 			message[j] = ((message[j] - 'a') + shift) % 26 + 'a';
 		}
 		printf("%c", message[j]);
 	}
+	printf("\n");
 	
 	return 0;
 }

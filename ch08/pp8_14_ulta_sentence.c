@@ -1,33 +1,27 @@
 #include <stdio.h>
 
-#define LENGTH 50
+#define LEN 80
 
-int main(void)
-{
-	char ch, end_character, sentence[LENGTH];
-	int i = 0, old_i;
+int main(void) {
+	char ch, msg[LEN], end_ch;
+	int i = 0, end_position, j;
 
-	// Input loop stops at a terminating character
 	printf("Enter a sentence: ");
-	while ((ch = getchar()) != '.' && ch != '?' && ch != '!') {
-		sentence[i++] = ch;
+	while (i < LEN && (ch = getchar()) != '.' && ch != '?' && ch != '!')
+		msg[i++] = ch;
+	end_ch = ch;
+
+	printf("Reversal of sentence: ");
+	while (i >= 0) {
+		end_position = i;
+		while (i >= 0 && msg[--i] != ' ');
+		for (j = i + 1; j < end_position; j++)
+			printf("%c", msg[j]);
+		if (i >= 0)	// separate words with a space except the last word.
+			printf(" ");
+
 	}
-	putchar(ch);
-	end_character = ch;
-	// Output loop
-	printf("Reversal of sentence:%d", i);
-	for (--i; i >= 0; i--) { // Runs from i - 1 to 0
-		old_i = i;
-		printf("old_i = %d", old_i);
-		while ((ch = sentence[i--]) != ' ')	// Moves i to the position of beginning of last word.
-			/* Null statement */printf("(begin %d)", i);
-		for (; i < old_i; i++) {
-			printf("%c (%d)", sentence[++i], i);
-		}
-		--i;
-		printf("(end%d)", i);
-	}
-	printf("%c\n", end_character);
+	printf("%c\n", end_ch);
 
 	return 0;
 }
